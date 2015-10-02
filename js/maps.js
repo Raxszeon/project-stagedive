@@ -19,6 +19,10 @@ function ajaxRequest(url, callback) {
                 callback(XHR); 
             } else {
                 alert("fel på servern");
+                /*
+	              Här skall vi nog försöka skapa en bild som visas 
+	              istället för varningsrutan. ???
+                */
             }
             
         }
@@ -30,6 +34,11 @@ function ajaxRequest(url, callback) {
 
 // tolkar svar från google api och sparar koordinater i variabler. Lägger sedan till markör på ny karta samt zoomar.
 function response(XHR){ 
+	
+	/*
+	 Går det på något sätt tolka svaret om den hittar 
+	 någon position eller ej, Hade varit bra att göra någon felhantering här med.
+	*/
 
 	var geoData=JSON.parse(XHR.responseText);
     var results=geoData.results; 

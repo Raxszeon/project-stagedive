@@ -9,7 +9,6 @@ function show_page(sida,id) {
 			document.getElementById('page_add').classList.remove("show");
 			document.getElementById('page_show_spelning').classList.remove("show");
 	
-	
 		// Visar vald spelning
 		} else if(sida == 'page_show_spelning') {
 			
@@ -21,12 +20,9 @@ function show_page(sida,id) {
 				document.getElementById('page_add').classList.remove("show");
 				
 				// Kör funktionen som visar spelningen
-				show_spelning(id);
-				
+				show_spelning(id);			
 				}
 				
-				
-
 		// Visar Lägg till
 		} else if(sida == 'page_add') {
 
@@ -38,14 +34,12 @@ function show_page(sida,id) {
 				document.getElementById('page_show_spelning').classList.remove("show");
 				}
 
-
 		//Om något är fel så återgår den till star 	
 		}else{
 			document.getElementById('page_add').classList.remove("show");
 			document.getElementById('page_show_spelning').classList.remove("show");
 		}
 }
-
 
 
 // -------------------------------- VISA VALD SPELNING  ----------------------------------------------------------------------------------
@@ -66,9 +60,6 @@ function show_spelning(id) {
 	
 }
 
-
-
-
 // -------------------------------- LÄGG TILL NY SPELNING  ----------------------------------------------------------------------------------
 
 function addSpelning() {
@@ -80,9 +71,8 @@ function addSpelning() {
 		addSpelning.datum 			= document.getElementById("datum").value;	
 		addSpelning.favorit 		= false;
 		addSpelning.favorit_rank	= ''; 	
-
 		
-		// Rensar så att formuläret är timt 
+		// Rensar så att formuläret är tomt 
 		document.getElementById("artist").value = '';
 		document.getElementById("arrangemang").value = '';
 		document.getElementById("stad").value = '';
@@ -100,9 +90,8 @@ function addSpelning() {
 			var spelningar = JSON.parse(localStorage.spelningar);
 				spelningar.push(addSpelning);
 				localStorage.spelningar = JSON.stringify(spelningar);
-			}
+				}
 
- 		
  		// En Kort fördröjning sker innan menyn döjs
  		  setTimeout(function(){  
 	 		  document.getElementById('page_add').classList.remove("show");
@@ -137,12 +126,23 @@ function showSpelningar() {
 			}else{
 			var spelning_box=document.createElement('div');													// Skapar Div med spelningen
 				spelning_box.id = "spelning_"+i; 															// Sätter ett ID på diven 
-				spelning_box.setAttribute("onclick", "show_page('page_show_spelning','"+i+"')");			// Lägger till länk för att öppna varje 
 				// show_page('page_show_spelning','')
 
 				document.getElementById('spelningar_show').appendChild(spelning_box);						// Lägger in den nya diven på sidan	
 
-				spelning_box.innerHTML = "<span class=\"artist\">"+spelningar[i].artist+"</span><br>";		// Fyller med innehåll...
+				spelning_box.innerHTML = "<span class=\"artist\" id=\"artist_"+i+"\">"+spelningar[i].artist+"</span><br>";	// Fyller på med innehåll
+				document.getElementById('artist_'+i).setAttribute("onclick", "show_page('page_show_spelning','"+i+"')");	// Gör Artist länkbar		
+				
+				// Kontrollerar ifall en spelning är favorit-markerad och skapar länk för att ändra detta
+				if(spelningar[i].favorit == true) {
+					spelning_box.innerHTML += "<div class=\"favorit_star\" id=\"favorit_"+i+"\">&#9733;</div>";		
+					document.getElementById('favorit_'+i).setAttribute("onclick", "favorit("+i+",false)");
+					
+				}else{
+					spelning_box.innerHTML += "<div class=\"favorit_star\" id=\"favorit_"+i+"\">&#9734;</div>";							
+					document.getElementById('favorit_'+i).setAttribute("onclick", "favorit("+i+",true)");
+					}
+
 				spelning_box.innerHTML += "<span class=\"datum\">"+spelningar[i].datum+"</span> - ";		
 				spelning_box.innerHTML += "<span class=\"plats\">"+spelningar[i].arrangemang+", "+spelningar[i].stad+"</span>";	
 			} // raderad
@@ -177,9 +177,25 @@ function raderaSpelning(id) {
 			// Uppdatera visningslistan
 			showSpelningar();
 
-	}, 500);		
-	
-
+	}, 5000);		
 }
+
+
+
+// -------------------- SÄTT VALD SPELNING TILL FAVORIT ------------------------------------------------------------------------------------------
+
+function favorit(id,val) {
+	// Funktion för att markera en spelning som favorit
+				
+	var spelningar = JSON.parse(localStorage.spelningar);
+	spelningar[id].favorit = val;
+	localStorage.spelningar = JSON.stringify(spelningar);
+
+	showSpelningar()
+}
+
+
+
+
 
 

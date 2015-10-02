@@ -1,17 +1,64 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:400,900,100italic);
 
 * {
-	 -webkit-transition: all 0.6s ease;
-	 -moz-transition: all 0.6s ease;
-	 -o-transition: all 0.6s ease;
-	 transition: all 0.6s ease;
 	 font-family: 'Lato', sans-serif;
 	}
 
-#map {
-}
+/* ------------------ SIDBLÄDDRING ---------------------------- */
 
 
+#page_show_box {
+	position: absolute;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	width:100%;
+	overflow:hidden;
+	}
+	
+	#page_add, #page_show_spelning {
+	 -webkit-transition: all 0.6s ease;
+	 -moz-transition: all 0.6s ease;
+	 -o-transition: all 0.6s ease;
+	 transition: all 0.6s ease;	
+	}
+
+	#page_show_list, #page_add, #page_show_spelning {
+		width:100%;
+		position: absolute;
+		top:30px;
+		bottom:0;
+		padding:10px;
+		box-sizing: border-box;
+		}
+		
+		#page_show_list {
+			left:0;
+			}
+
+		#page_add {
+			left:-100%;
+			border-right: 1px dotted #000;
+			background-color: #f5f5f5;
+			z-index: 10000;	
+			}
+			#page_add.show {
+				left:0;
+				}
+		
+		#page_show_spelning {
+			border-left: 1px dotted #000;
+			background-color: #f5f5f5;
+			right:-100%;
+			box-sizing: border-box;
+			z-index: 10000;
+			}
+			#page_show_spelning.show {
+				right:0;
+				}
+				
+/* ------------------ LÄGG TILL ---------------------------- */
 
 #form_add {
 	width: 100%;
@@ -22,8 +69,7 @@
 		width:100%;
 		padding:10px;
 		box-sizing: border-box;
-	}
-	
+		}
 
 .button {
 	padding:10px;
@@ -35,88 +81,59 @@
 	width: 100%;
 	}
 
-
 .red {
 	border: 1px solid red;
 	font-weight: bold;
 	color:red;
 	}
 	
+/* ------------------ VISA SPELNINGAR ---------------------------- */
+	
+	
 #spelningar_show {
 	margin-top:20px;
-}	
+	}	
 
-#spelningar_show > div {
-	display:block;
-	border-bottom: 1px dotted black;
-	padding:10px;
-	cursor: pointer;
-	}
-	
-#spelningar_show .artist {
-	font-weight: bold;
-	}
-
-#spelningar_show .datum, #spelningar_show .plats  {
-font-weight: 100;
-font-style: italic;
-	}
-
-#page_show_box {
-	position: absolute;
-	top:0;
-	left:0;
-	right:0;
-	bottom:0;
-	width:100%;
-	overflow:hidden;
-	}
-
-#page_show_list, #page_add, #page_show_spelning {
-	width:100%;
-	position: absolute;
-	top:30px;
-	bottom:0;
-	padding:10px;
-	box-sizing: border-box;
-	}
-
-#page_show_list {
-	left:0;
-	}
-
-
-
-#page_add {
-	left:-100%;
-	border-right: 1px dotted #000;
-	background-color: #f5f5f5;
-	z-index: 10000;
-	}
-	#page_add.show {
-		left:0;
+	#spelningar_show > div {
+		display:block;
+		border-bottom: 1px dotted black;
+		padding:10px;
+		position: relative;
 		}
 		
-#page_show_spelning {
-	border-left: 1px dotted #000;
-	background-color: #f5f5f5;
-	right:-100%;
-	box-sizing: border-box;
-	z-index: 10000;
-	}
-	#page_show_spelning.show {
-		right:0;
+	#spelningar_show .artist {
+		font-weight: bold;
+		cursor: pointer;
 		}
 		
-		
+	#spelningar_show .datum, #spelningar_show .plats  {
+		font-weight: 100;
+		font-style: italic;
+		}
+
+	.favorit_star {
+		position: absolute;
+		right:5px;
+		top:15px;
+		font-size: 20px;
+		}
+
 .delete {
-	opacity: 0.1;
-}
+	animation: animation_delete 2s 1 forwards;
+	}
+
+/* ------------------ ANIMATIONER ---------------------------- */
 
 
-@media (min-width: 700px) {  /* ---------------------------------------------- */
+@keyframes animation_delete {
+	0% {   }
+	10% { transform:  translateX(-10px); }
+	100% { transform:  translateX(1200px); } 
+	}
 
+/* ------------------ MEDIEQUERYS ---------------------------- */
 
+@media (min-width: 700px) {  
 
 #page_show_box {
 	position: absolute;
