@@ -168,6 +168,9 @@ function showSpelningar() {
 // -------------------------------- VISA TOPPLISTAN ---------------------------------------------------------------------------
 
 function showTopplista() {
+	
+	var count = 0;
+	
 	document.getElementById('topplista_show').innerHTML = '';
 	
 	// Ifall det inte finns något sparat i localstorage så visas detta
@@ -198,9 +201,15 @@ function showTopplista() {
 
 				spelning_box.innerHTML += "<span class=\"datum\">"+spelningar[i].datum+"</span> - ";		
 				spelning_box.innerHTML += "<span class=\"plats\">"+spelningar[i].arrangemang+", "+spelningar[i].stad+"</span>";	
+				count++; // Updaterar räknevärket med hur många som är favorit markerade
 			} // raderad
 		} // loop
 	} // localstorage
+	
+	if(count == 0) {
+		document.getElementById('topplista_show').innerHTML = 'Du har ej favoritmarkerat några spelningar. Tryck på stjärnan intill spelningen för att skapa en topplista.';
+	}
+	
 }
 
 
