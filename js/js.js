@@ -19,8 +19,6 @@ function show_page(sida,id) {
 				vald_sida.classList.add("show");
 				document.getElementById('page_add').classList.remove("show");
 				document.getElementById('page_show_topplista').classList.remove("show");
-				
-				// Kör funktionen som visar spelningen
 				show_spelning(id);			
 				}
 				
@@ -33,7 +31,6 @@ function show_page(sida,id) {
 				vald_sida.classList.add("show");
 				document.getElementById('page_show_spelning').classList.remove("show");
 				document.getElementById('page_show_topplista').classList.remove("show");
-
 				}
 				
 		// Visar topplista ----------------------------------------------------------------
@@ -45,7 +42,6 @@ function show_page(sida,id) {
 				vald_sida.classList.add("show");
 				document.getElementById('page_show_spelning').classList.remove("show");
 				document.getElementById('page_add').classList.remove("show");
-
 				showTopplista();						
 				}
 
@@ -53,7 +49,7 @@ function show_page(sida,id) {
 		}else{
 			document.getElementById('page_add').classList.remove("show");
 			document.getElementById('page_show_spelning').classList.remove("show");
-		}
+			}
 }
 
 
@@ -72,6 +68,21 @@ function show_spelning(id) {
 
 	// Lägger till Radera-knapp
 	document.getElementById("delete_button").setAttribute("onclick", "raderaSpelning("+id+")");	 
+	
+	// Kontrollerar ifall spelningen är favorit-markerad och skapar länk för att ändra detta
+	if(spelningar.favorit == true) {
+		document.getElementById('favorit_star_big').innerHTML = "&#9733;";		
+		document.getElementById('favorit_star_big').setAttribute("onclick", "favorit("+id+",false,'show')");
+		document.getElementById('favorit_star_big').classList.add("active");
+		
+		
+	}else{
+		document.getElementById('favorit_star_big').innerHTML = "&#9734;";							
+		document.getElementById('favorit_star_big').setAttribute("onclick", "favorit("+id+",true,'show')");
+		document.getElementById('favorit_star_big').classList.remove("active");
+
+		}	
+	
 	
 }
 
@@ -104,6 +115,10 @@ function addSpelning() {
 		} else {
 			var spelningar = JSON.parse(localStorage.spelningar);
 				spelningar.push(addSpelning);
+				
+				//Sorterar om 
+				spelningar.sort(sort_by_date);		
+				
 				localStorage.spelningar = JSON.stringify(spelningar);
 				}
 
@@ -115,6 +130,19 @@ function addSpelning() {
 		// Uppdaterar sidan	
 		showSpelningar()
 }
+// -------------------------------- SORTERINGSMÖJLIGHETER FÖR ARRAY -------------------------------------------------------------------------
+
+ function sort_by_date(a, b) {
+	if(a.datum) { 
+	    return new Date(a.datum).getTime() - new Date(b.datum).getTime();				
+		}
+	}
+
+ function sort_by_rank(a, b) {
+	if(a.favorit_rank) { 
+	    return a.favorit_rank - b.favorit_rank;				
+		}
+	}
 
 // -------------------------------- VISAR LISTA MED SPELNINGAR ---------------------------------------------------------------------------
 
@@ -130,15 +158,14 @@ function showSpelningar() {
 	// Om spelningar finns registrerade i localstorage skrivs dessa ut
 	} else {
 		spelningar = JSON.parse(localStorage.spelningar);
-				
-		for(var i=0; i<spelningar.length; i++){
 		
-			// Kontrollerar först om posten i arrayen är raderad eller ej
-			if(spelningar[i] == null) {
-				// Gör inget ifall den är satt till "null"
+		// Sorterar om efter datum och uppdaterar localStorage med nya sorteringen
+		spelningar.sort(sort_by_date);		
+		localStorage.spelningar = JSON.stringify(spelningar);
+		
 
-			// Spelningen är EJ raderad och loopas igenom som vanligt
-			}else{
+		// Loopar ut alla spelningar						
+		for(var i=0; i<spelningar.length; i++){
 			var spelning_box=document.createElement('div');													// Skapar Div med spelningen
 				spelning_box.id = "spelning_"+i; 															// Sätter ett ID på diven 
 				// show_page('page_show_spelning','')
@@ -151,16 +178,17 @@ function showSpelningar() {
 				// Kontrollerar ifall en spelning är favorit-markerad och skapar länk för att ändra detta
 				if(spelningar[i].favorit == true) {
 					spelning_box.innerHTML += "<div class=\"favorit_star\" id=\"favorit_"+i+"\">&#9733;</div>";		
-					document.getElementById('favorit_'+i).setAttribute("onclick", "favorit("+i+",false)");
+					document.getElementById('favorit_'+i).setAttribute("onclick", "favorit("+i+",false,'start')");
+					document.getElementById('favorit_'+i).classList.add("active");
 					
 				}else{
 					spelning_box.innerHTML += "<div class=\"favorit_star\" id=\"favorit_"+i+"\">&#9734;</div>";							
-					document.getElementById('favorit_'+i).setAttribute("onclick", "favorit("+i+",true)");
+					document.getElementById('favorit_'+i).setAttribute("onclick", "favorit("+i+",true,'start')");
+					document.getElementById('favorit_'+i).classList.remove("active");
 					}
 
 				spelning_box.innerHTML += "<span class=\"datum\">"+spelningar[i].datum+"</span> - ";		
 				spelning_box.innerHTML += "<span class=\"plats\">"+spelningar[i].arrangemang+", "+spelningar[i].stad+"</span>";	
-			} // raderad
 		} // loop
 	} // localstorage
 }
@@ -181,28 +209,30 @@ function showTopplista() {
 	} else {
 		spelningar = JSON.parse(localStorage.spelningar);
 		
+		// Sorterar om efter ordning
+		spelningar.sort(sort_by_rank);				
+		
 		for(var i=0; i<spelningar.length; i++){
 		
-			if(spelningar[i] == null || spelningar[i].favorit == false) {
-				/*
-					I loopen kontrollerar den om spelningen är raderade eller satt till favorit=False
-					Om så är fallet hoppar den över denna posten.
-				*/
-			}else{
-			var spelning_box=document.createElement('div');													// Skapar Div med spelningen
-				spelning_box.id = "spelning_"+i; 															// Sätter ett ID på diven 
-				document.getElementById('topplista_show').appendChild(spelning_box);						// Lägger in den nya diven på sidan	
-				spelning_box.innerHTML = "<span class=\"artist\" id=\"favorit_artist_"+i+"\">"+spelningar[i].artist+"</span><br>";	// Fyller på med innehåll
-				document.getElementById('favorit_artist_'+i).setAttribute("onclick", "show_page('page_show_spelning','"+i+"')");	// Gör Artist länkbar		
+			if(spelningar[i].favorit !== false) {
+			var spelning_box=document.createElement('div');												// Skapar Div med spelningen
+				spelning_box.id = "spelning_"+i; 														// Sätter ett ID på diven 
+				document.getElementById('topplista_show').appendChild(spelning_box);					// Lägger in den nya diven på sidan	
+				
+				// Visar namnet på artsten och gör detta klickbart.
+				spelning_box.innerHTML = "<span class=\"artist\" id=\"favorit_artist_"+i+"\">"+spelningar[i].artist+"</span><br>";	
+				document.getElementById('favorit_artist_'+i).setAttribute("onclick", "show_page('page_show_spelning','"+i+"')");		
 				
 				// Klickar man på stjärnan i Topplistan raderas den valda posten.
 				spelning_box.innerHTML += "<div class=\"favorit_star\" id=\"favorit_favorit_"+i+"\">&#9733;</div>";		
-				document.getElementById('favorit_favorit_'+i).setAttribute("onclick", "favorit("+i+",false)");
+				document.getElementById('favorit_favorit_'+i).setAttribute("onclick", "favorit("+i+",false,'topplista')");
+				document.getElementById('favorit_favorit_'+i).classList.add("active");
+				
 
 				spelning_box.innerHTML += "<span class=\"datum\">"+spelningar[i].datum+"</span> - ";		
 				spelning_box.innerHTML += "<span class=\"plats\">"+spelningar[i].arrangemang+", "+spelningar[i].stad+"</span>";	
 				count++; // Updaterar räknevärket med hur många som är favorit markerade
-			} // raderad
+			} // favorit
 		} // loop
 	} // localstorage
 	
@@ -217,8 +247,8 @@ function showTopplista() {
 // -------------------- TA BORT VALD SPELNING ------------------------------------------------------------------------------------------
 
 function raderaSpelning(id) {
-		
-	// Visar starsidan
+
+	// Visar startsida
 	show_page('','');
 
 	// Animation på vald post startar			
@@ -228,15 +258,26 @@ function raderaSpelning(id) {
 	  setTimeout(function(){ 
 			var spelningar = JSON.parse(localStorage.spelningar);	// Öppnar arrayen	
 			delete spelningar[id]; 									// Sätter valt id till null
+			
+			/* 
+				Lånad kodsnutt ifrån: http://stackoverflow.com/questions/281264/remove-empty-elements-from-an-array-in-javascript
+				Viss förändring har skett i koden.
+			*/ 
+			// STÄDAR UPP ARRAYEN
+			var len = spelningar.length, i;
+			for(i = 0; i < len; i++ )
+			    spelningar[i] && spelningar.push(spelningar[i]);  
+			spelningar.splice(0 , len);  
+			
 			localStorage.spelningar = JSON.stringify(spelningar);	// Uppdaterar localstorage
 			showSpelningar();										// Uppdatera visningslistan
-	}, 5000);		
+	}, 2000);		
 }
 
 
 // -------------------- SÄTT VALD SPELNING TILL FAVORIT ------------------------------------------------------------------------------------------
 
-function favorit(id,val) {
+function favorit(id,val,page) {
 	 
 	// Funktion för att markera en spelning som favorit			
 	var spelningar = JSON.parse(localStorage.spelningar);
@@ -245,4 +286,10 @@ function favorit(id,val) {
 
 	showSpelningar();
 	showTopplista();
+	
+	// Ifall man har valt att uppdatera favorit när man visar vald spelningen uppdateras även denna.
+	if(page == 'show') {
+		show_spelning(id);	
+		}
+	
 	}

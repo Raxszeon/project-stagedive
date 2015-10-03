@@ -128,35 +128,49 @@
 		top:15px;
 		font-size: 20px;
 		cursor: pointer;
+		color: #dfdfdf;
 		}
+		.favorit_star.active {
+			color: #ffc600;
+			text-shadow: 1px 1px 4px #cacaca;
+			}
 
 .delete {
 	animation: animation_delete 2s 1 forwards;
 	}
+	
+#favorit_star_big {
+	cursor:pointer;
+	position: absolute;
+	right:20px;
+	top:20px;
+	font-size: 30px;
+	color: #dfdfdf;
+	}
+	#favorit_star_big.active {
+		color: #ffc600;
+		text-shadow: 1px 1px 4px #cacaca;
+	}
 
 /* ------------------ ANIMATIONER ---------------------------- */
-
 
 @keyframes animation_delete {
 	0% {   }
 	10% { transform:  translateX(-10px); }
-	100% { transform:  translateX(1200px); } 
+	100% { transform:  translateX(150%); } 
 	}
 
 /* ------------------ MEDIEQUERYS ---------------------------- */
 
 @media (min-width: 700px) {  
-
-#page_show_box {
-	position: absolute;
-	top:0;
-	left:0;
-	right:0;
-	bottom:0;
-	width:700px;
-	margin:0 auto;
-	overflow:hidden;
-	}
-
-
+	#page_show_box {
+		position: absolute;
+		top:0;
+		left:0;
+		right:0;
+		bottom:0;
+		width:700px;
+		margin:0 auto;
+		overflow:hidden;
+		}
 }
