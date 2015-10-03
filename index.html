@@ -10,14 +10,14 @@
 	</head>
 	<body id="body">
 		
-		<main id="page_show_box">
-			
-<a href="#" onclick="show_page('page_add','');">LÄGG TILL</a>
-<a href="#" onclick="show_page('page_show_list','');">VISA LISTA</a>		
+	<main id="page_show_box">
+					
+		<a href="#" onclick="show_page('page_add','');">LÄGG TILL</a>
+		<a href="#" onclick="show_page('page_show_list','');">VISA LISTA</a>		
+		<a href="#" onclick="show_page('page_show_topplista','');">VISA TOPPLISTA</a>		
 		
-
-		
-	<div id="page_add" >		
+	<div id="page_add" >
+			<h2>Lägg till ny Spelning</h2>		
 			<form id="form_add">
 				<label for="artist">Artist</label>
 				<input type="text" name="artist" id="artist" />
@@ -29,33 +29,32 @@
 				<input type="button" value="Lägg till!" class="button" id="addButton">
 			</form>
 	</div>
-			
-	
+		
 	<div id="page_show_list">		
+		<h1>Sparade spelningar</h1>
 		<div id="spelningar_show"></div>		
 	</div>
 	
 	
+	<div id="page_show_topplista">	
+		<h2>Topplista</h2>	
+		<div id="topplista_show"></div>		
+	</div>
+	
 	<div id="page_show_spelning">
-
 		<h2 id="spelning_rubrik">Rubrik</h2>
 		<p id="spelning_info">Text</p>
-		
 		<img src="http://maps.googleapis.com/maps/api/staticmap?center=63.438082,16.016619&zoom=4&scale=false&size=320x480&maptype=roadmap&format=png&visual_refresh=true" id="map">
-		
 		<br>
 		<input type="button" id="delete_button" value="Ta Bort Spelningen">
-
 	</div>
-
-
-
-			
-		</main>
+	
+	</main>
 		<script src="js/maps.js"></script>
 	    <script>
 			document.getElementById("addButton").addEventListener("click", validate_form);    
 			showSpelningar();
+			showTopplista();
 		</script>
 	</body>
 </html>
