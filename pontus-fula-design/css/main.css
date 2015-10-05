@@ -86,8 +86,9 @@ body{
 		#page_add {
 			position: fixed;
 			left:-100%;
-			background-image: url("./img/crowd.jpg");
+			background-image: url("../img/crowd2.jpg");
 			background-size: cover;
+			
     		background-repeat: no-repeat;
     		background-color: #000;
 			z-index: 10000;	
