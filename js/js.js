@@ -3,6 +3,9 @@
 function show_page(sida,id) {
 	
 	var vald_sida = document.getElementById(sida);
+	
+	// Spela upp click-ljud
+	 document.getElementById("sound_click").play();	
 
 		// Visa framsidan ----------------------------------------------------------------
 		if(sida == 'page_show_list') {
@@ -50,6 +53,10 @@ function show_page(sida,id) {
 			document.getElementById('page_add').classList.remove("show");
 			document.getElementById('page_show_spelning').classList.remove("show");
 			}
+		
+	
+			
+			
 }
 
 
@@ -253,6 +260,9 @@ function raderaSpelning(id) {
 
 	// Animation på vald post startar			
 	document.getElementById("spelning_"+id).classList.add("delete");
+	
+	// Spela upp raderaljud
+	 document.getElementById("sound_delete").play();
 
 	// En viss fördröjning sker innan en spelning raderas från listan. För att kompensera animationen
 	  setTimeout(function(){ 
