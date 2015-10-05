@@ -49,8 +49,12 @@ body{
 		background-color:#E6332A;
 		z-index: 100000;
 		opacity: 0.85;
-
+		text-align: center;
 		}
+	#nav_bar img {
+		padding: 15px 30px 15px 30px;
+	}
+	
 	
 	#nav_button {
 		text-align: center; 
@@ -88,7 +92,6 @@ body{
 			left:-100%;
 			background-image: url("../img/crowd2.jpg");
 			background-size: cover;
-			
     		background-repeat: no-repeat;
     		background-color: #000;
 			z-index: 10000;	
