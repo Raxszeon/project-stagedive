@@ -72,9 +72,10 @@ body{
 	#page_show_list, #page_add, #page_show_spelning, #page_show_topplista {
 		width:100%;
 		position: absolute;
-		top:30px;
+		top:0px;
 		bottom:0;
 		padding:10px;
+		padding-top:60px;
 		box-sizing: border-box;
 		overflow:scroll;
 		background: linear-gradient(0deg, black, grey);
@@ -142,6 +143,14 @@ body{
 		padding:10px;
 		box-sizing: border-box;
 		}
+		
+
+input#arrangemang, input#stad {
+	width:50%;
+	float:left;
+	border-right: 2px solid black;
+}		
+		
 
 .button {
 	padding:10px;
