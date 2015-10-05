@@ -132,6 +132,10 @@ function addSpelning() {
  		// En Kort fördröjning sker innan menyn döjs
  		  setTimeout(function(){  
 	 		  document.getElementById('page_add').classList.remove("show");
+	 		  
+	 		  	// Spela upp ljud som visar att den är tillagd
+	 		  	document.getElementById("sound_added").play();	
+	 		  
 			}, 200);	
 			
 		// Uppdaterar sidan	
