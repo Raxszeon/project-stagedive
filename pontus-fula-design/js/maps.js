@@ -35,19 +35,22 @@ function ajaxRequest(url, callback) {
 // tolkar svar från google api och sparar koordinater i variabler. Lägger sedan till markör på ny karta samt zoomar.
 function response(XHR){ 
 	
-	/*
-	 Går det på något sätt tolka svaret om den hittar 
-	 någon position eller ej, Hade varit bra att göra någon felhantering här med.
-	*/
 
 	var geoData=JSON.parse(XHR.responseText);
     var results=geoData.results; 
-
-    var lng=results[0].geometry.location.lng;
-    var lat=results[0].geometry.location.lat;
-
-	map='http://maps.googleapis.com/maps/api/staticmap?center=' + lat + ',' + lng;  
-	map +='&zoom=7&size=320x400&style=element:labels|visibility:on&markers=color:red|' + lat + ',' + lng;
-
-	document.getElementById('map').src=map;
+    
+    if(results.length == 0) {
+	    
+	// Felmeddelande.när den ej hittar något ???     
+	    
+    } else {
+   
+	    var lng=results[0].geometry.location.lng;
+	    var lat=results[0].geometry.location.lat;
+	
+		map='http://maps.googleapis.com/maps/api/staticmap?center=' + lat + ',' + lng;  
+		map +='&zoom=7&size=320x400&style=element:labels|visibility:on&markers=color:red|' + lat + ',' + lng;
+	
+		document.getElementById('map').src=map;
+	}
 }
