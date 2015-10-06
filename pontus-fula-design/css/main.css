@@ -49,6 +49,7 @@ body{
 		background-color:#E6332A;
 		z-index: 100000;
 		text-align: center;
+		right: 0px;
 		}
 
 	#nav_container{
@@ -228,7 +229,7 @@ input#arrangemang, input#stad {
 	cursor:pointer;
 	position: absolute;
 	right:20px;
-	top:20px;
+	top:70px;
 	font-size: 30px;
 	color: #dfdfdf;
 	}
