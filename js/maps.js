@@ -19,10 +19,8 @@ function ajaxRequest(url, callback) {
                 callback(XHR); 
             } else {
                 // Om kartan ej går att hämta så visas en fel-bild för detta
-                document.getElementById('map').src = 'img/map_fail.jpg';
-
+                document.getElementById('map_box').style.backgroundImage = "url('img/map_fail.jpg')";
             }
-            
         }
     }
     XHR.open("GET", url, true);
@@ -46,6 +44,6 @@ function response(XHR){
 		map='http://maps.googleapis.com/maps/api/staticmap?center=' + lat + ',' + lng;  
 		map +='&zoom=8&size=900x400&style=element:labels|visibility:on&markers=color:red|' + lat + ',' + lng;
 	}
-	document.getElementById('map').src=map;
+	document.getElementById('map_box').style.backgroundImage = "url('"+map+"')";
 
 }

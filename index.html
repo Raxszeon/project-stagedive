@@ -11,19 +11,26 @@
 	<body id="body">
 		
 	<main id="page_show_box">
-					
-		<a href="#" onclick="show_page('page_add','');">LÄGG TILL</a>
-		<a href="#" onclick="show_page('page_show_list','');">VISA LISTA</a>		
-		<a href="#" onclick="show_page('page_show_topplista','');">VISA TOPPLISTA</a>		
 		
+		<nav id="nav_bar">
+			<div id="nav_container">
+				<a href="#" onclick="show_page('page_add','');" class="nav_button"><img id="add" src="img/add182.png" alt="+"></a>
+				<a href="#" onclick="show_page('page_show_list','');" class="nav_button"><img id="user" src="img/user7.png" alt="="></a>
+				<a href="#" onclick="show_page('page_show_topplista','');" class="nav_button"><img id="favourites" src="img/favourites7.png" alt="!"></a>
+
+				<!-- Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a>             
+					 is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a> -->
+
+			</div>
+		</nav>			
 	<div id="page_add" >
 			<h2>Lägg till ny Spelning</h2>		
 			<form id="form_add">
 				<label for="artist">Artist</label>
-				<input type="text" name="artist" id="artist" />
+				<input type="text" name="artist" id="artist" placeholder="Artist"/>
 				<label for="arrangemang">Arrangemang & Stad</label>
-				<input type="text" name="arrangemang" id="arrangemang" />
-				<input type="text" name="stad" id="stad" />			
+				<input type="text" name="arrangemang" id="arrangemang"  placeholder="Arrangemang/Klubb/Festival..." />
+				<input type="text" name="stad" id="stad"  placeholder="Stad"/>			
 				<label for="datum">Datum</label>
 				<input type="date" name="datum" id="datum" />
 				<input type="button" value="Lägg till!" class="button" id="addButton">
@@ -37,17 +44,23 @@
 	
 	
 	<div id="page_show_topplista">	
-		<h2>Topplista</h2>	
+		<h2>Favoritspelningar</h2>	
 		<div id="topplista_show"></div>		
 	</div>
 	
 	<div id="page_show_spelning">
-		<div id="favorit_star_big">&#9734</div>
-		<h2 id="spelning_rubrik">Rubrik</h2>
-		<p id="spelning_info">Text</p>
-		<img src="img/map-fail.jpg" id="map">
-		<br>
-		<input type="button" id="delete_button" value="Ta Bort Spelningen">
+		
+		
+		<div id="map_box">
+			<div id="map_info">
+				<img src="img/back.png" alt="Tillbaka" id="button_back" onclick="show_page('page_show_list','');"/>
+				<h2 id="spelning_rubrik">Rubrik</h2>
+				<p id="spelning_info">Text</p>
+				<div id="favorit_star_big">&#9734</div>
+
+			</div>
+			<input type="button" id="delete_button" value="Ta Bort Spelningen">
+		</div>
 	</div>
 	
 	<audio id="sound_click"><source src="media/click.mp3" type="audio/mpeg"></audio>
