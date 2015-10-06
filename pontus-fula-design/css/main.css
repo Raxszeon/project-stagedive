@@ -45,22 +45,30 @@ body{
 	#nav_bar {
 		position: fixed;
 		width: 100%;
-		height: 7%;
+		height: 55px;
 		background-color:#E6332A;
 		z-index: 100000;
-		opacity: 0.85;
 		text-align: center;
 		}
-	#nav_bar img {
-		padding: 15px 30px 15px 30px;
+
+	#nav_container{
+		margin-top: 12px;
 	}
-	
 	
 	#nav_button {
 		text-align: center; 
 		text-decoration: none;
 		color: #fff;
+		margin: 0 30px;
 	}
+
+	#add, #user, #favourites{
+		width: 32px;
+		margin-bottom: -5px;
+	}
+
+
+
 	
 	#page_add, #page_show_spelning, #page_show_topplista {
 	 -webkit-transition: all 0.6s ease;
@@ -142,6 +150,7 @@ body{
 		width:100%;
 		padding:10px;
 		box-sizing: border-box;
+		border-radius: 5px;
 		}
 		
 
@@ -241,6 +250,11 @@ input#arrangemang, input#stad {
 /* ------------------ MEDIEQUERYS ---------------------------- */
 
 @media (min-width: 700px) {  
+
+	body{
+		background: url('../img/crowd_02.png');
+	}
+
 	#page_show_box {
 		position: absolute;
 		top:0;
@@ -251,4 +265,14 @@ input#arrangemang, input#stad {
 		margin:0 auto;
 		overflow:hidden;
 		}
+
+
+	#nav_bar{
+		width: 700px;
+	}
+
+
+
+
+
 }
