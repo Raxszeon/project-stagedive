@@ -61,6 +61,12 @@ body{
 	}
 
 
+.nav_active {
+	opacity: 0.9;
+	 -webkit-filter: drop-shadow(2px 2px 3px #480606);
+	  filter: drop-shadow(2px 2px 3px #480606);
+	}
+
 /* ------------------ SIDBLÄDDRING ---------------------------- */
 
 
@@ -170,12 +176,17 @@ input#arrangemang, input#stad {
 	color:#fff;
 	border-radius: 5px;
 	width: 100%;
+	background: linear-gradient(0deg, #bd1716, #E6332A);
+	text-transform: uppercase;
+	font-size:15px;
+
 	}
 
 .red {
-	border: 1px solid red;
+	border: 2px solid red;
 	font-weight: bold;
 	color:red;
+	background-color: #ffeaea;
 	}
 	
 /* ------------------ VISA SPELNINGAR ---------------------------- */
@@ -192,9 +203,8 @@ input#arrangemang, input#stad {
 		padding:10px;
 		position: relative;
 		background-color: #bbb;
-		
 		margin: 0 0 5% 0;
-
+		border-radius: 3px;
 		}
 		
 	#spelningar_show .artist, #topplista_show .artist {
@@ -241,6 +251,8 @@ input#arrangemang, input#stad {
 	background-position: center top;
 	background-size: cover;
 	margin-top:20px;
+	border-radius: 3px;
+	overflow: hidden;
 	}
 	
 #map_info {

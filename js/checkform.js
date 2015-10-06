@@ -33,7 +33,7 @@ function validate_form(e) {
 			}
 
 		// ---- KONTROLLERAR DATUM ------------------------------------------------------------
-		if(!datum) { 
+		if(!datum.value) { 
 				datum.classList.add("red");
 				error = 1;
 			}else{ 

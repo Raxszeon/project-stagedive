@@ -12,6 +12,9 @@ function show_page(sida,id) {
 			document.getElementById('page_add').classList.remove("show");
 			document.getElementById('page_show_spelning').classList.remove("show");
 			document.getElementById('page_show_topplista').classList.remove("show");
+			document.getElementById('add').classList.remove("nav_active");
+			document.getElementById('favourites').classList.remove("nav_active");
+			document.getElementById('user').classList.add("nav_active");
 	
 		// Visar vald spelning ----------------------------------------------------------------
 		} else if(sida == 'page_show_spelning') {
@@ -22,6 +25,9 @@ function show_page(sida,id) {
 				vald_sida.classList.add("show");
 				document.getElementById('page_add').classList.remove("show");
 				document.getElementById('page_show_topplista').classList.remove("show");
+				document.getElementById('add').classList.remove("nav_active");
+				document.getElementById('favourites').classList.remove("nav_active");
+				document.getElementById('user').classList.add("nav_active");
 				show_spelning(id);			
 				}
 				
@@ -30,10 +36,15 @@ function show_page(sida,id) {
 
 			if(vald_sida.classList.contains("show")) {
 				vald_sida.classList.remove("show");
+				document.getElementById('add').classList.remove("nav_active");
+				
 			}else{
 				vald_sida.classList.add("show");
 				document.getElementById('page_show_spelning').classList.remove("show");
 				document.getElementById('page_show_topplista').classList.remove("show");
+				document.getElementById('add').classList.add("nav_active");
+				document.getElementById('favourites').classList.remove("nav_active");
+				document.getElementById('user').classList.remove("nav_active");
 				}
 				
 		// Visar topplista ----------------------------------------------------------------
@@ -41,10 +52,15 @@ function show_page(sida,id) {
 
 			if(vald_sida.classList.contains("show")) {
 				vald_sida.classList.remove("show");
+				document.getElementById('favourites').classList.remove("nav_active");
+
 			}else{
 				vald_sida.classList.add("show");
 				document.getElementById('page_show_spelning').classList.remove("show");
 				document.getElementById('page_add').classList.remove("show");
+				document.getElementById('add').classList.remove("nav_active");
+				document.getElementById('favourites').classList.add("nav_active");
+				document.getElementById('user').classList.remove("nav_active");
 				showTopplista();						
 				}
 
