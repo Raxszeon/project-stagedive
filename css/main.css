@@ -24,7 +24,6 @@ body{
 	height: 33%;
 	z-index: 999999;
 	
-
 }
 
 #home_button {
@@ -36,6 +35,16 @@ body{
 	margin:0 auto;
 	animation: logo_animation 4s 1 forwards;
 
+}
+
+#stage_dive {
+	position: absolute;
+	width: 175px;
+	z-index: 999999;
+	bottom: 35%;
+	left: 0;right:0;
+	margin:0 auto;
+	animation: stage_dive_animation 4s 1 forwards;
 }
 
 
@@ -67,11 +76,7 @@ body{
 		text-align: center;
 		background: linear-gradient(0deg, #ff6633, #ff3333);
 		border-bottom: none;
-		/*border-left: 1px solid #f35856;
-		border-right: 1px solid #f35856;		*/
 		box-sizing: border-box;
-		filter: drop-shadow(0px 0px 20px 0px #ad1514);
-		-webkit-filter: drop-shadow(2px 2px 3px #ad1514);
 
 		}
 
@@ -325,7 +330,8 @@ input#arrangemang, input#stad {
 	bottom:10px;
 	left:5px;
 	}
-	
+
+
 #button_back {
 	width:20px;
 	float:left;
@@ -355,13 +361,21 @@ input#arrangemang, input#stad {
 
 @keyframes logo_animation {
 	0% { transform: scale(0); }
-	10% { transform: scale(1.5); }
+	10% { transform: scale(1.3); }
 	20% { transform: scale(1); }
-	30% { transform: scale(1.3); }
+	30% { transform: scale(1.2); }
 	50% { 	bottom: 50%; }
-	100% { bottom: -20px; transform: scale(0.3); } 
+	100% { bottom: -30px; transform: scale(0.3); } 
 }
 
+@keyframes stage_dive_animation {
+	0% {  }
+	10% { opacity: 1; }
+	20% { opacity: 1; }
+	30% { opacity: 1; }
+	70% { opacity: 0;}
+	100% { opacity: 0; } 
+}
 
 
 
@@ -393,9 +407,13 @@ input#arrangemang, input#stad {
 		#page_add {
 			left:-100%;
 			background-image: none;
-			background-color: #000000;
+			background: linear-gradient(0deg, #0a0a0a, #707070);
 			z-index: 10000;	
 			color: #fff;
 			}
+<<<<<<< Updated upstream
 	
+=======
+
+>>>>>>> Stashed changes
 }
