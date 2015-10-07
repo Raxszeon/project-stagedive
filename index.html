@@ -12,8 +12,10 @@
 		
 	<main id="page_show_box">
 		
-		<nav id="nav_bar">
-			<div id="nav_container">
+		<div id="animation_bar" class="nav_bar_animation"></div>
+		
+		<nav id="nav_bar" >
+			<div  id="nav_container">
 				<a href="#" onclick="show_page('page_add','');" class="nav_button"><img id="add" src="img/add182.png" alt="+"></a>
 				<a href="#" onclick="show_page('page_show_list','');" class="nav_button"><img id="user" class="nav_active" src="img/user7.png" alt="="></a>
 				<a href="#" onclick="show_page('page_show_topplista','');" class="nav_button"><img id="favourites" src="img/favourites7.png" alt="!"></a>
@@ -23,6 +25,11 @@
 
 			</div>
 		</nav>			
+	
+	<div id="home_button_container">
+		<img class="button_animation" id="home_button" src="./img/logo1.png">
+	</div>
+
 	<div id="page_add" >
 			<h2>Lägg till ny Spelning</h2>		
 			<form id="form_add">

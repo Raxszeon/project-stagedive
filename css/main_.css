@@ -4,6 +4,40 @@
 	 font-family: 'Lato', sans-serif;
 	}
 
+<<<<<<< Updated upstream:css/main_.css
+=======
+body{
+	overflow-x: hidden;
+	margin: 0 auto;
+}
+
+/* ------------------ DÖLJER SCROLL ---------------------------- */
+
+::-webkit-scrollbar { 
+    display: none; 
+}
+::-moz-scrollbars-none
+
+/* ------------------ UTKAST FÖR HEMKNAPP/PAGE-UP ---------------------------- */
+
+#home_button_container {
+	position: relative; 
+	width: 100%;
+	height: 33%;
+	margin: auto;
+	z-index: 999999 !important;
+
+}
+
+#home_button {
+	position: absolute;
+	width: 66px;
+	height: 66px;
+	z-index: 999999 !important;
+	margin: auto;
+}
+
+>>>>>>> Stashed changes:pontus-fula-design/css/main.css
 /* ------------------ SIDBLÄDDRING ---------------------------- */
 
 
@@ -14,9 +48,57 @@
 	right:0;
 	bottom:0;
 	width:100%;
+<<<<<<< Updated upstream:css/main_.css
 	overflow:hidden;
 	}
 	
+=======
+	background-color: #f5f5f5;
+
+	}
+
+	#nav_bar {
+		position: fixed;
+		width: 100%;
+		height: 55px;
+		background-color:#E6332A;
+		z-index: 100000;
+		text-align: center;
+		right: 0px;
+		}
+<<<<<<< Updated upstream
+
+	#nav_container{
+		margin-top: 12px;
+	}
+	
+=======
+	
+	#nav_bar img {
+		padding: 15px 30px 15px 30px;
+	}
+	
+	.nav_bar_animation {
+				animation: nav_animation 1s 1 forwards;
+	}
+
+>>>>>>> Stashed changes
+	#nav_button {
+		text-align: center; 
+		text-decoration: none;
+		color: #fff;
+		margin: 0 30px;
+	}
+
+	#add, #user, #favourites{
+		width: 32px;
+		margin-bottom: -5px;
+	}
+
+
+
+	
+>>>>>>> Stashed changes:pontus-fula-design/css/main.css
 	#page_add, #page_show_spelning, #page_show_topplista {
 	 -webkit-transition: all 0.6s ease;
 	 -moz-transition: all 0.6s ease;
@@ -164,6 +246,14 @@
 	100% { transform:  translateX(150%); } 
 	}
 
+<<<<<<< Updated upstream:css/main_.css
+=======
+@keyframes nav_animation {
+	0% { transform: scaleY(100);}
+	50% { transform: scaleY(100);}
+	100% { transform: scaleY(1);}
+
+>>>>>>> Stashed changes:pontus-fula-design/css/main.css
 /* ------------------ MEDIEQUERYS ---------------------------- */
 
 @media (min-width: 700px) {  
