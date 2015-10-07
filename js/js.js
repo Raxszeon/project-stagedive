@@ -278,7 +278,6 @@ function showTopplista() {
 				}
 				spelning_box.ondrop=function drop(event){
 
-
 					if(event.target.className == 'datum'
 						|| event.target.className == 'plats'
 						|| event.target.className == 'artist'
@@ -291,8 +290,6 @@ function showTopplista() {
 						source.innerHTML = event.target.innerHTML;
 						event.target.innerHTML = event.dataTransfer.getData('text/plain');
 					}
-
-
 				}
 			} // favorit
 		} // loop
