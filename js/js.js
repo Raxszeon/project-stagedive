@@ -246,6 +246,9 @@ function showTopplista() {
 				spelning_box.id = "spelning_"+i; 														// Sätter ett ID på diven 
 				document.getElementById('topplista_show').appendChild(spelning_box);					// Lägger in den nya diven på sidan	
 				
+
+				spelning_box.innerHTML = "<span>\"HEJ\"</span>"
+
 				// Visar namnet på artsten och gör detta klickbart.
 				spelning_box.innerHTML = "<span class=\"artist\" id=\"favorit_artist_"+i+"\">"+spelningar[i].artist+"</span><br>";	
 				document.getElementById('favorit_artist_'+i).setAttribute("onclick", "show_page('page_show_spelning','"+i+"')");		
@@ -259,6 +262,38 @@ function showTopplista() {
 				spelning_box.innerHTML += "<span class=\"datum\">"+spelningar[i].datum+"</span> - ";		
 				spelning_box.innerHTML += "<span class=\"plats\">"+spelningar[i].arrangemang+", "+spelningar[i].stad+"</span>";	
 				count++; // Updaterar räknevärket med hur många som är favorit markerade
+
+				//Drag and drop
+
+				spelning_box.draggable = true;
+				var source;
+				spelning_box.ondragstart = function drag(event){
+					source = event.target;
+					event.dataTransfer.setData('text/plain', event.target.innerHTML);
+					event.dataTransfer.effectAllowed = 'move';
+				}				
+				spelning_box.ondragover = function dragOver(event){
+					event.preventDefault();
+					event.dataTransfer.dropEffect = 'move';
+				}
+				spelning_box.ondrop=function drop(event){
+
+
+					if(event.target.className == 'datum'
+						|| event.target.className == 'plats'
+						|| event.target.className == 'artist'
+						|| event.target.classList[0] == 'favorit_star'){
+						return false;
+					}
+					else{
+						event.preventDefault();
+						event.stopPropagation();
+						source.innerHTML = event.target.innerHTML;
+						event.target.innerHTML = event.dataTransfer.getData('text/plain');
+					}
+
+
+				}
 			} // favorit
 		} // loop
 	} // localstorage
