@@ -245,9 +245,6 @@ function showTopplista() {
 			var spelning_box=document.createElement('div');												// Skapar Div med spelningen
 				spelning_box.id = "spelning_"+i; 														// Sätter ett ID på diven 
 				document.getElementById('topplista_show').appendChild(spelning_box);					// Lägger in den nya diven på sidan	
-				
-
-				spelning_box.innerHTML = "<span>\"HEJ\"</span>"
 
 				// Visar namnet på artsten och gör detta klickbart.
 				spelning_box.innerHTML = "<span class=\"artist\" id=\"favorit_artist_"+i+"\">"+spelningar[i].artist+"</span><br>";	
