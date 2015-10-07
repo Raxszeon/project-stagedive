@@ -391,22 +391,11 @@ input#arrangemang, input#stad {
 		}
 		
 		#page_add {
- 			/*position: fixed;*/
 			left:-100%;
 			background-image: none;
 			background-color: #000000;
 			z-index: 10000;	
 			color: #fff;
 			}
-		
-		
-
-		
-		
-
-
-
-
-
-
+	
 }
