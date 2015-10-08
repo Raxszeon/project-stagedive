@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html manifest="stagedive.appcache">
 	<head>
 		<title>MULTIMEDIA PROJEKT</title>
 		<meta charset="utf-8" />
@@ -7,13 +7,28 @@
 		<link rel="stylesheet" href="css/main.css" title="" type="text/css" media="screen" charset="utf-8" />
 		<script src="js/js.js"></script>
 		<script src="js/checkform.js"></script>
+		
+		<link rel="apple-touch-icon" href="img/iphone3.png">
+		<link rel="apple-touch-icon" sizes="76x76" href="img/ipad.png">
+		<link rel="apple-touch-icon" sizes="120x120" href="img/iphone-retina.png">
+		<link rel="apple-touch-icon" sizes="152x152" href="img/ipad-retina.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="img/iPhone6plus.png">
+	    <meta name="apple-mobile-web-app-capable" content="yes">
+	    <meta name="apple-mobile-web-app-title" content="StageDive">
+	    
+	    <meta name="mobile-web-app-capable" content="yes">
+		<meta name="application-name" content="StageDive">
+		<link rel="icon" sizes="128x128" href="img/icon.png">
+		<link rel="icon" sizes="192x192" href="img/icon-highres.png">    
 	</head>
 	<body id="body">
 		
 	<main id="page_show_box">
 		
-		<nav id="nav_bar">
-			<div id="nav_container">
+		<div id="animation_bar" class="nav_bar_animation"></div>
+		
+		<nav id="nav_bar" >
+			<div  id="nav_container">
 				<a href="#" onclick="show_page('page_add','');" class="nav_button"><img id="add" src="img/add182.png" alt="+"></a>
 				<a href="#" onclick="show_page('page_show_list','');" class="nav_button"><img id="user" class="nav_active" src="img/user7.png" alt="="></a>
 				<a href="#" onclick="show_page('page_show_topplista','');" class="nav_button"><img id="favourites" src="img/favourites7.png" alt="!"></a>
@@ -23,6 +38,13 @@
 
 			</div>
 		</nav>			
+	
+	<div id="home_button_container" class="button_animation" >
+		<img id="home_button" src="./img/logo1.png">
+	</div>
+
+	<img id="stage_dive" src="./img/stagedive.png">
+
 	<div id="page_add" >
 			<h2>Lägg till ny Spelning</h2>		
 			<form id="form_add">
