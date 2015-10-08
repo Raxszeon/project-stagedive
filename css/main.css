@@ -244,7 +244,7 @@ input#arrangemang, input#stad {
 
 	}	
 
-	#spelningar_show > div,  #topplista_show > div {
+	#spelningar_show > div{
 		display:block;
 		padding:10px;
 		position: relative;
@@ -262,6 +262,20 @@ input#arrangemang, input#stad {
 	#spelningar_show .datum, #spelningar_show .plats,  #topplista_show .plats , #spelning_info {
 		font-weight: 200;
 		font-style: italic;
+		}
+
+	#ranknummer{
+			float: left;
+			margin: 10px 0 0;
+		}
+
+	#topplista_show > div{
+		display:block;
+		padding:10px;
+		position: relative;
+		background-color: #bbb;
+		margin: 0 0 5% 30px;
+		border-radius: 3px;
 		}
 
 	.favorit_star {
