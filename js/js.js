@@ -197,12 +197,6 @@ function showSpelningar() {
 				spelning_box.id = "spelning_"+i; 															// Sätter ett ID på diven 
 				// show_page('page_show_spelning','')
 
-				//Ranknummer
-				var nr=document.createElement('h1');
-				nr.id='ranknummer';
-				nr.innerHTML=i+1;
-				document.getElementById('topplista_show').appendChild(nr);
-
 				document.getElementById('spelningar_show').appendChild(spelning_box);						// Lägger in den nya diven på sidan	
 
 				spelning_box.innerHTML = "<span class=\"artist\" id=\"artist_"+i+"\">"+spelningar[i].artist+"</span><br>";	// Fyller på med innehåll
