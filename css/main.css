@@ -250,7 +250,7 @@ input#arrangemang, input#stad {
 		position: relative;
 		background: rgba(187,187,187,0.2);
 		margin: 0 0 5% 0;
-		border-radius: none;
+		border-radius: 3px;
 		}
 		
 	#spelningar_show .artist, #topplista_show .artist {
@@ -273,7 +273,7 @@ input#arrangemang, input#stad {
 		display:block;
 		padding:10px;
 		position: relative;
-		background-color: #bbb;
+		background: rgba(187,187,187,0.2);
 		margin: 0 0 5% 30px;
 		border-radius: 3px;
 		}
