@@ -244,6 +244,14 @@ function showTopplista() {
 			if(spelningar[i].favorit !== false) {
 			var spelning_box=document.createElement('div');												// Skapar Div med spelningen
 				spelning_box.id = "spelning_"+i; 														// Sätter ett ID på diven 
+				
+				//Ranknummer
+				var nr=document.createElement('h1');
+				nr.id='ranknummer';
+				nr.innerHTML=i+1;
+
+				document.getElementById('topplista_show').appendChild(nr);
+
 				document.getElementById('topplista_show').appendChild(spelning_box);					// Lägger in den nya diven på sidan	
 
 				// Visar namnet på artsten och gör detta klickbart.
@@ -254,7 +262,6 @@ function showTopplista() {
 				spelning_box.innerHTML += "<div class=\"favorit_star\" id=\"favorit_favorit_"+i+"\">&#9733;</div>";		
 				document.getElementById('favorit_favorit_'+i).setAttribute("onclick", "favorit("+i+",false,'topplista')");
 				document.getElementById('favorit_favorit_'+i).classList.add("active");
-				
 
 				spelning_box.innerHTML += "<span class=\"datum\">"+spelningar[i].datum+"</span> - ";		
 				spelning_box.innerHTML += "<span class=\"plats\">"+spelningar[i].arrangemang+", "+spelningar[i].stad+"</span>";	
