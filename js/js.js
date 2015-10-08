@@ -15,6 +15,8 @@ function show_page(sida,id) {
 			document.getElementById('add').classList.remove("nav_active");
 			document.getElementById('favourites').classList.remove("nav_active");
 			document.getElementById('user').classList.add("nav_active");
+			document.getElementById('home_button').classList.remove("hide");
+
 	
 		// Visar vald spelning ----------------------------------------------------------------
 		} else if(sida == 'page_show_spelning') {
@@ -28,6 +30,7 @@ function show_page(sida,id) {
 				document.getElementById('add').classList.remove("nav_active");
 				document.getElementById('favourites').classList.remove("nav_active");
 				document.getElementById('user').classList.add("nav_active");
+				document.getElementById('home_button').classList.remove("hide");
 				show_spelning(id);			
 				}
 				
@@ -37,6 +40,7 @@ function show_page(sida,id) {
 			if(vald_sida.classList.contains("show")) {
 				vald_sida.classList.remove("show");
 				document.getElementById('add').classList.remove("nav_active");
+				document.getElementById('home_button').classList.remove("hide");
 				
 			}else{
 				vald_sida.classList.add("show");
@@ -45,6 +49,8 @@ function show_page(sida,id) {
 				document.getElementById('add').classList.add("nav_active");
 				document.getElementById('favourites').classList.remove("nav_active");
 				document.getElementById('user').classList.remove("nav_active");
+				document.getElementById('home_button').classList.add("hide");
+
 				}
 				
 		// Visar topplista ----------------------------------------------------------------
@@ -61,6 +67,7 @@ function show_page(sida,id) {
 				document.getElementById('add').classList.remove("nav_active");
 				document.getElementById('favourites').classList.add("nav_active");
 				document.getElementById('user').classList.remove("nav_active");
+				document.getElementById('home_button').classList.remove("hide");
 				showTopplista();						
 				}
 
@@ -68,6 +75,7 @@ function show_page(sida,id) {
 		}else{
 			document.getElementById('page_add').classList.remove("show");
 			document.getElementById('page_show_spelning').classList.remove("show");
+			document.getElementById('home_button').classList.remove("hide");
 			}
 		
 }
