@@ -237,18 +237,23 @@ function showTopplista() {
 		spelningar = JSON.parse(localStorage.spelningar);
 		
 		// Sorterar om efter ordning
-		spelningar.sort(sort_by_rank);				
-		
+		spelningar.sort(sort_by_rank);	
+
+		//Ranknummer
+		var n=1;		
+
 		for(var i=0; i<spelningar.length; i++){
 		
 			if(spelningar[i].favorit !== false) {
 			var spelning_box=document.createElement('div');												// Skapar Div med spelningen
 				spelning_box.id = "spelning_"+i; 														// Sätter ett ID på diven 
 				
-				//Ranknummer
+				//Skriver ut ranknummer
 				var nr=document.createElement('h1');
 				nr.id='ranknummer';
-				nr.innerHTML=i+1;
+				nr.innerHTML=n;
+				n++;
+
 
 				document.getElementById('topplista_show').appendChild(nr);
 
@@ -268,7 +273,6 @@ function showTopplista() {
 				count++; // Updaterar räknevärket med hur många som är favorit markerade
 
 				//Drag and drop
-
 				spelning_box.draggable = true;
 				var source;
 				spelning_box.ondragstart = function drag(event){
