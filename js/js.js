@@ -70,9 +70,6 @@ function show_page(sida,id) {
 			document.getElementById('page_show_spelning').classList.remove("show");
 			}
 		
-	
-			
-			
 }
 
 
@@ -105,7 +102,6 @@ function show_spelning(id) {
 		document.getElementById('favorit_star_big').classList.remove("active");
 
 		}	
-	
 	
 }
 
@@ -291,12 +287,14 @@ function showTopplista() {
 						|| event.target.className == 'artist'
 						|| event.target.classList[0] == 'favorit_star'){
 						return false;
+
 					}
 					else{
 						event.preventDefault();
 						event.stopPropagation();
 						source.innerHTML = event.target.innerHTML;
 						event.target.innerHTML = event.dataTransfer.getData('text/plain');
+
 					}
 				}
 			} // favorit
@@ -306,9 +304,7 @@ function showTopplista() {
 	if(count == 0) {
 		document.getElementById('topplista_show').innerHTML = 'Du har ej favoritmarkerat några spelningar. Tryck på stjärnan intill spelningen för att skapa en topplista.';
 	}
-	
 }
-
 
 
 // -------------------- TA BORT VALD SPELNING ------------------------------------------------------------------------------------------

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html manifest="stagedive.appcache">
 	<head>
-		<title>MULTIMEDIA PROJEKT</title>
+		<title>StageDive</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="css/main.css" title="" type="text/css" media="screen" charset="utf-8" />
+		<link rel="stylesheet" href="css/main.css" title="" type="text/css" media="screen" />
 		<script src="js/js.js"></script>
 		<script src="js/checkform.js"></script>
 		<script src="js/dragndrop.js"></script>
@@ -24,16 +24,13 @@
 	</head>
 	<body id="body">
 		
-	<main id="page_show_box">
-		
+	<main id="page_show_box">		
 		<div id="animation_bar" class="nav_bar_animation"></div>
-		
 		<nav id="nav_bar" >
 			<div  id="nav_container">
 				<a href="#" onclick="show_page('page_add','');" class="nav_button"><img id="add" src="img/add182.png" alt="+"></a>
 				<a href="#" onclick="show_page('page_show_list','');" class="nav_button"><img id="user" class="nav_active" src="img/user7.png" alt="="></a>
 				<a href="#" onclick="show_page('page_show_topplista','');" class="nav_button"><img id="favourites" src="img/favourites7.png" alt="!"></a>
-
 				<!-- Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a>             
 					 is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a> -->
 
@@ -41,10 +38,10 @@
 		</nav>			
 	
 	<div id="home_button_container" class="button_animation" >
-		<img id="home_button" src="./img/logo1.png">
+		<img id="home_button" src="./img/logo1.png" alt="logo">
 	</div>
 
-	<img id="stage_dive" src="./img/stagedive.png">
+	<img id="stage_dive" src="./img/stagedive.png" alt="StageDive">
 
 	<div id="page_add" >
 			<h2>Lägg till ny Spelning</h2>		
@@ -79,7 +76,7 @@
 				<img src="img/back.png" alt="Tillbaka" id="button_back" onclick="show_page('page_show_list','');"/>
 				<h2 id="spelning_rubrik">Rubrik</h2>
 				<p id="spelning_info">Text</p>
-				<div id="favorit_star_big">&#9734</div>
+				<div id="favorit_star_big">&#9734;</div>
 			</div>
 			<input type="button" id="delete_button" value="Ta Bort Spelningen">
 		</div>
